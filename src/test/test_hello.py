@@ -1,6 +1,11 @@
-# test/test_hello.py
+# src/test/test_hello.py
 
-from src.hello import hello_world
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-def test_hello_world():
-    assert hello_world() == "Hello World"
+from hello import lambda_handler
+
+def test_lambda_returns_hello_world():
+    response = lambda_handler({}, {})
+    assert response['body'] == 'Hello World'

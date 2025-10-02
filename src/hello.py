@@ -1,4 +1,5 @@
-# src/hello.py
-
-def hello_world():
-    return "Hola Mundo"  # Intencionalmente incorrecto para que el test falle
+def lambda_handler(event, context):
+    return {
+        'statusCode': 200,
+        'body': 'Hola Mundo'  # Intencionalmente incorrecto
+    }
